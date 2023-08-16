@@ -1,0 +1,36 @@
+{
+  "lang": "en",
+  "name": "DIGITAL AGENCY",
+  "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,",
+
+  "menu.home": "Home",
+  "menu.offers": "Offers",
+  "menu.about": "About",
+  "menu.services": "Services",
+  "menu.pricing": "Pricing",
+  "menu.project": "Project",
+  "menu.contact": "Contact",
+
+  "previous": "Previous",
+  "next": "Next",
+
+  "home.hero.title": "Elevating Brands through Digital Innovation",
+  "home.hero.badge": "DIGITAL AGENCY",
+  "home.hero.desc": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,",
+
+  "about.hero.title": "Our Vision",
+  "about.hero.badge": "ABOUT US",
+  "about.hero.desc": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
+
+  "service.hero.title": "Build Web3 with legacy economy support",
+  "service.hero.badge": "OUR SEVICES",
+  "service.hero.desc": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
+
+  "project.hero.title": "Build Web3 with legacy economy support",
+  "project.hero.badge": "PROJECTS",
+  "project.hero.desc": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
+
+  "contact.hero.title": "Get in Touch",
+  "contact.hero.badge": "CONTACT US",
+  "contact.hero.desc": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,"
+}
