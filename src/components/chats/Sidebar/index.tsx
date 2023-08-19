@@ -17,6 +17,7 @@ import api from "utils/api";
 import { useSelector } from "react-redux";
 import useStore from "useStore";
 import { SERVER_API } from "config/endpoints";
+import AccountDropdown from "./AccountDropdown";
 
 interface PropsType {
   slideOpened: boolean;
@@ -26,7 +27,21 @@ interface PropsType {
 const Sidebar: React.FC<PropsType> = ({ slideOpened, setSlideOpened }) => {
   const navigate = useNavigate();
   const { conversation, user } = useSelector((state: StoreObject) => state);
+  const [accountOpen, setAccountOpen] = useState<boolean>(false);
   const { update } = useStore();
+  const dropdownRef = React.useRef<any>(null);
+
+  React.useEffect(() => {
+    const windowClick = (e: any) => {
+      if (!dropdownRef.current.contains(e.target)) {
+        setAccountOpen(false);
+      }
+    };
+
+    window.addEventListener("click", windowClick);
+
+    return () => window.removeEventListener("click", windowClick);
+  }, []);
 
   const handleAddNewChat = () => {
     navigate("/c/new-conversation");
@@ -39,20 +54,21 @@ const Sidebar: React.FC<PropsType> = ({ slideOpened, setSlideOpened }) => {
         console.log(res.data);
         if (res.data === "success") {
           const prevPos = conversation.map((item) => item.id).indexOf(id);
+          const prevConversations = [...conversation];
           update({
-            conversation: conversation.splice(
+            conversation: prevConversations.splice(
               0,
               conversation.map((item: IConversation) => item.id).indexOf(id)
             )
           });
           console.log(prevPos);
-          // navigate(
-          //   `/${
-          //     conversation[prevPos]
-          //       ? conversation[prevPos]
-          //       : conversation[conversation.length - 1]
-          //   }`
-          // );
+          navigate(
+            `/c/${
+              conversation[prevPos]
+                ? conversation[prevPos].id
+                : conversation[conversation.length - 1].id
+            }`
+          );
         }
       })
       .catch((err) => {
@@ -151,14 +167,18 @@ const Sidebar: React.FC<PropsType> = ({ slideOpened, setSlideOpened }) => {
           p: "0.5rem 1rem"
         }}
       >
-        <BottomNavContainer onClick={() => handleClearConversations()}>
+        <BottomNavContainer>
+          <AccountDropdown open={accountOpen} setOpen={setAccountOpen} />
           <BottomNavItem onClick={() => handleClearConversations()}>
             <Avatar>
               <Icon icon="TrashLg" />
             </Avatar>
             <Span>Clear Conversation</Span>
           </BottomNavItem>
-          <BottomNavItem>
+          <BottomNavItem
+            onClick={() => setAccountOpen(accountOpen ? false : true)}
+            ref={dropdownRef}
+          >
             <Avatar bg={GV("white")}>{user && user.user.name[0]}</Avatar>
             <Flex
               $style={{
@@ -167,13 +187,6 @@ const Sidebar: React.FC<PropsType> = ({ slideOpened, setSlideOpened }) => {
               }}
             >
               <Span>{user && user.user.name}</Span>
-              {/* <Span
-                $style={{
-                  size: "0.8rem"
-                }}
-              >
-                Montibase
-              </Span> */}
             </Flex>
             <Icon icon="Setting" />
           </BottomNavItem>

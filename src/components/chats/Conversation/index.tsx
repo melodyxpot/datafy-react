@@ -2,6 +2,7 @@ import { Icon, Span } from "components/basic";
 import React, { useState } from "react";
 import { ConversationItem, ToolsContainer } from "./style";
 import { useNavigate, useParams } from "react-router-dom";
+import DeleteModal from "./DeleteModal";
 
 interface PropsType {
   conversation: IConversation;
@@ -17,31 +18,32 @@ const Conversation: React.FC<PropsType> = ({ conversation, onDelete }) => {
     navigate(`/c/${conversation.id}`);
   };
 
+  const handleDelete = () => {
+    onDelete(conversation.id);
+    setDeleteState(false);
+  };
+
   return (
     <ConversationItem
       selected={params.convers_id === conversation.id}
       onClick={() => handleOpenChat()}
     >
+      <DeleteModal
+        title={conversation.title}
+        isOpened={deleteState}
+        setIsOpened={setDeleteState}
+        handleDelete={handleDelete}
+      />
       <Icon icon="Chat" />
       <Span>{conversation.title}</Span>
       <ToolsContainer selected={params.convers_id === conversation.id}>
-        {deleteState ? (
-          <>
-            <button onClick={() => onDelete(conversation.id)}>
-              <Icon icon="Check" />
-            </button>
-            <button onClick={() => setDeleteState(false)}>
-              <Icon icon="Close" />
-            </button>
-          </>
-        ) : (
-          <button
-            style={{ display: "flex", alignItems: "center" }}
-            onClick={() => setDeleteState(true)}
-          >
-            <Icon icon="Trash" />
-          </button>
-        )}
+        <button
+          style={{ display: "flex", alignItems: "center" }}
+          onClick={() => setDeleteState(true)}
+        >
+          <Icon icon="Trash" />
+        </button>
+        {/* )} */}
       </ToolsContainer>
     </ConversationItem>
   );

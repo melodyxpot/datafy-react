@@ -11,7 +11,8 @@ import {
   MarkdownTH,
   MarkdownTable
 } from "./style";
-import Avatar from "assets/images/avatar.png";
+import AIAvatar from "assets/images/avatar.png";
+import UserAvatar from "assets/images/user.png";
 import { CopyButton } from "../CopyButton";
 import { Flex } from "components/basic";
 
@@ -37,12 +38,13 @@ const ChatMessage: React.FC<PropsType> = ({ message }) => {
       <ChatItemWrapper>
         <Flex>
           <img
-            src={Avatar}
+            src={message.role === "assistant" ? AIAvatar : UserAvatar}
             style={{
               width: "2rem",
               height: "2rem",
               userSelect: "none",
-              marginRight: "1rem"
+              marginRight: "1rem",
+              borderRadius: "50%"
             }}
           />
           <MemoizedReactMarkdown

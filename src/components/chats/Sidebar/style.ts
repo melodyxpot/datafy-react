@@ -125,10 +125,12 @@ export const BottomNavContainer = styled.ul`
   flex-direction: column;
   gap: 0.5rem;
   transition: 0.3s;
+  position: relative;
 `;
 
 export const BottomNavItem = styled.li`
   display: flex;
+  position: relative;
   align-items: center;
   gap: 1rem;
   width: 100%;
