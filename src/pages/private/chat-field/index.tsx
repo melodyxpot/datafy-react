@@ -33,21 +33,17 @@ const ChatField = () => {
   }, [user]);
 
   useEffect(() => {
-    console.log(params.convers_id);
-
     if (params.convers_id) {
       if (params.convers_id === "new-conversation") {
         setMessages([]);
         setIsChatting(false);
       } else {
-        console.log("1");
         if (
           conversation.filter((item) => item.id === params.convers_id)
             .length !== 0
         ) {
           getChats(params.convers_id);
         } else {
-          console.log("111");
           navigate("/c/new-conversation");
         }
       }
@@ -239,7 +235,9 @@ const ChatField = () => {
         <Header setSlideOpened={setSlideOpened} slideOpened={slideOpened} />
         <HeaderContainer>
           <Heading level={5}>
-            {params.convers_id === "new-conversation"
+            {params.convers_id === "new-conversation" ||
+            conversation.filter((item) => item.id === params.convers_id)[0] ===
+              undefined
               ? "New Conversation with Datafy"
               : conversation.filter((item) => item.id === params.convers_id)[0]
                   .title}

@@ -62,13 +62,7 @@ const Sidebar: React.FC<PropsType> = ({ slideOpened, setSlideOpened }) => {
             )
           });
           console.log(prevPos);
-          navigate(
-            `/c/${
-              conversation[prevPos]
-                ? conversation[prevPos].id
-                : conversation[conversation.length - 1].id
-            }`
-          );
+          navigate("/c/new-conversation");
         }
       })
       .catch((err) => {
