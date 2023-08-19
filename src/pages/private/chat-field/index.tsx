@@ -33,17 +33,24 @@ const ChatField = () => {
   }, [user]);
 
   useEffect(() => {
-    if (params.convers_id !== "new-conversation" && params.convers_id) {
-      if (
-        conversation.filter((item) => item.id === params.convers_id).length !==
-        0
-      ) {
-        getChats(params.convers_id);
+    if (params.convers_id) {
+      if (params.convers_id === "new-conversation") {
+        setMessages([]);
+        setIsChatting(false);
       } else {
-        navigate("/c/new-conversation");
+        if (
+          conversation.filter((item) => item.id === params.convers_id)
+            .length !== 0
+        ) {
+          getChats(params.convers_id);
+        } else {
+          navigate("/c/new-conversation");
+        }
       }
+    } else {
+      navigate("/c/new-conversation");
     }
-  }, [params]);
+  }, [params.convers_id]);
 
   useEffect(() => {
     chatEndRef.current?.scrollIntoView({ behavior: "smooth" });
@@ -228,7 +235,9 @@ const ChatField = () => {
         <Header setSlideOpened={setSlideOpened} slideOpened={slideOpened} />
         <HeaderContainer>
           <Heading level={5}>
-            {params.convers_id === "new-conversation"
+            {params.convers_id === "new-conversation" ||
+            conversation.filter((item) => item.id === params.convers_id)[0] ===
+              undefined
               ? "New Conversation with Datafy"
               : conversation.filter((item) => item.id === params.convers_id)[0]
                   .title}

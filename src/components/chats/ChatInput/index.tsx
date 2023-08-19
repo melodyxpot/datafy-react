@@ -107,9 +107,13 @@ const ChatInput: React.FC<PropsType> = ({ onSend, isChatting }) => {
             <Icon icon="Erase" />
           </ChatEraser>
         </Flex>
-        <SendButton onClick={() => handleSend()}>
-          <Icon icon="Sent" />
-        </SendButton>
+        {isChatting ? (
+          <img src={"assets/images/chat-loading.gif"} />
+        ) : (
+          <SendButton onClick={() => handleSend()}>
+            <Icon icon="Sent" />
+          </SendButton>
+        )}
       </Flex>
     </ChatInputWrapper>
   );
