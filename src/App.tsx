@@ -12,9 +12,9 @@ function App() {
     if (window.location.pathname !== "/login") {
       if (localStorage.token) {
         setAuthToken(localStorage.token);
-        // update({
-        //   isAuthenticated: true
-        // });
+        update({
+          isAuthenticated: true
+        });
       }
       loadtoken();
     }

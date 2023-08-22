@@ -9,6 +9,7 @@ import {
   ChatItemWrapper,
   MarkdownTD,
   MarkdownTH,
+  MarkdownTR,
   MarkdownTable
 } from "./style";
 import AIAvatar from "assets/images/avatar.png";
@@ -70,6 +71,9 @@ const ChatMessage: React.FC<PropsType> = ({ message }) => {
               },
               table({ children }) {
                 return <MarkdownTable>{children}</MarkdownTable>;
+              },
+              tr({ children }) {
+                return <MarkdownTR>{children}</MarkdownTR>;
               },
               th({ children }) {
                 return <MarkdownTH>{children}</MarkdownTH>;
