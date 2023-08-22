@@ -29,27 +29,29 @@ export const EditContainer = styled.div`
 
 export const MarkdownTable = styled.table`
   border-collapse: collapse;
-  border: 1px;
-  border-color: rgb(0 0 0);
-  padding: 0.25rem 0.75rem;
+  margin: 25px 0;
+  font-size: 0.9em;
+  border-radius: 10px;
+  font-family: sans-serif;
+  min-width: 400px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+  text-align: center;
 `;
 
 export const MarkdownTH = styled.th`
-  border: 1px;
-  border-color: #000;
-  padding: 0.25rem 0.75rem;
-  color: #fff;
-  background-color: rgb(107 114 128);
-  overflow-wrap: break-word;
+  background: linear-gradient(180deg, #8230ee 0%, #5c80dd 100%), #2a3439;
+  color: #ffffff;
+  padding: 8px 10px;
+  line-height: 1.3rem;
+`;
+
+export const MarkdownTR = styled.tr`
+  background-color: #fff;
+  border-radius: 10px;
 `;
 
 export const MarkdownTD = styled.td`
-  border: 1px;
-  border-color: #000;
-  padding: 0.25rem 0.75rem;
-  color: #fff;
-  background-color: rgb(107 114 128);
-  overflow-wrap: break-word;
+  padding: 12px 15px;
 `;
 
 export const ChatItem = styled.div<{ role?: Role }>`
