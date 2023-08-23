@@ -2,7 +2,7 @@ import { Icon, Span } from "components/basic";
 import React, { useState } from "react";
 import { ConversationItem, ToolsContainer } from "./style";
 import { useNavigate, useParams } from "react-router-dom";
-import DeleteModal from "./DeleteModal";
+import DeleteModal from "../DeleteModal";
 
 interface PropsType {
   conversation: IConversation;
@@ -29,9 +29,10 @@ const Conversation: React.FC<PropsType> = ({ conversation, onDelete }) => {
       onClick={() => handleOpenChat()}
     >
       <DeleteModal
-        title={conversation.title}
-        isOpened={deleteState}
-        setIsOpened={setDeleteState}
+        title={`Delete - ${conversation.title}`}
+        content={`Please confirm that you want to delete ${conversation.title}`}
+        isOpen={deleteState}
+        setIsOpen={setDeleteState}
         handleDelete={handleDelete}
       />
       <Icon icon="Chat" />
