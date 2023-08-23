@@ -18,6 +18,7 @@ import { useSelector } from "react-redux";
 import useStore from "useStore";
 import { SERVER_API } from "config/endpoints";
 import AccountDropdown from "./AccountDropdown";
+import DeleteModal from "../DeleteModal";
 
 interface PropsType {
   slideOpened: boolean;
@@ -28,6 +29,7 @@ const Sidebar: React.FC<PropsType> = ({ slideOpened, setSlideOpened }) => {
   const navigate = useNavigate();
   const { conversation, user } = useSelector((state: StoreObject) => state);
   const [accountOpen, setAccountOpen] = useState<boolean>(false);
+  const [deleteState, setDeleteState] = useState<boolean>(false);
   const { update } = useStore();
   const dropdownRef = React.useRef<any>(null);
 
@@ -51,7 +53,6 @@ const Sidebar: React.FC<PropsType> = ({ slideOpened, setSlideOpened }) => {
     api
       .delete(`/convers/${id}`)
       .then((res) => {
-        console.log(res.data);
         if (res.data === "success") {
           const prevPos = conversation.map((item) => item.id).indexOf(id);
           const prevConversations = [...conversation];
@@ -74,16 +75,28 @@ const Sidebar: React.FC<PropsType> = ({ slideOpened, setSlideOpened }) => {
     api
       .delete(`${SERVER_API}/api/convers`)
       .then((res: AxiosResponse) => {
+        update({ conversation: [] });
         navigate("/c/new-conversation");
       })
       .catch((err: AxiosError) => {
         console.error(`Clear Conversation ERR :=> ${err}`);
       });
-    console.log("Clear All Conversations");
+  };
+
+  const handleDelete = () => {
+    handleClearConversations();
+    setDeleteState(false);
   };
 
   return (
     <SidebarContainer isOpen={slideOpened}>
+      <DeleteModal
+        title={"Delete All Conversations"}
+        isOpen={deleteState}
+        content={"Please confirm that you want to delete all conversations."}
+        setIsOpen={setDeleteState}
+        handleDelete={handleDelete}
+      />
       <Flex
         $style={{
           flex: "1",
@@ -163,7 +176,7 @@ const Sidebar: React.FC<PropsType> = ({ slideOpened, setSlideOpened }) => {
       >
         <BottomNavContainer>
           <AccountDropdown open={accountOpen} setOpen={setAccountOpen} />
-          <BottomNavItem onClick={() => handleClearConversations()}>
+          <BottomNavItem onClick={() => setDeleteState(true)}>
             <Avatar>
               <Icon icon="TrashLg" />
             </Avatar>

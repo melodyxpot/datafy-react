@@ -29,7 +29,8 @@ export const EditContainer = styled.div`
 
 export const MarkdownTable = styled.table`
   border-collapse: collapse;
-  margin: 25px 0;
+  align-items: center;
+  margin: 25px auto;
   font-size: 0.9em;
   border-radius: 10px;
   font-family: sans-serif;

@@ -3,29 +3,32 @@ import {
   CancelButton,
   DeleteButton,
   ModalContainer,
-  ModalContent
+  ModalContent,
+  ModalHeader
 } from "./style";
 import { Flex } from "components/basic";
 
 interface PropsType {
   title: string;
-  isOpened: boolean;
-  setIsOpened: (param: boolean) => void;
+  isOpen: boolean;
+  setIsOpen: (param: boolean) => void;
   handleDelete: () => void;
+  content: string;
 }
 
 const DeleteModal: React.FC<PropsType> = ({
   title,
-  isOpened,
-  setIsOpened,
-  handleDelete
+  isOpen,
+  setIsOpen,
+  handleDelete,
+  content
 }) => {
   const modalRef = React.useRef<any>(null);
 
   React.useEffect(() => {
     const windowClick = (e: any) => {
-      if (!modalRef.current.contains(e.target) && isOpened) {
-        setIsOpened(false);
+      if (!modalRef.current.contains(e.target) && isOpen) {
+        setIsOpen(false);
       }
     };
 
@@ -35,14 +38,15 @@ const DeleteModal: React.FC<PropsType> = ({
   }, []);
 
   return (
-    <ModalContainer open={isOpened}>
+    <ModalContainer open={isOpen}>
       <ModalContent ref={modalRef}>
-        <p style={{ textAlign: "center", margin: "10px" }}>
-          This will delete {title}
+        <ModalHeader>{title}</ModalHeader>
+        <p style={{ textAlign: "center", margin: "15px", fontSize: "1rem" }}>
+          {content}
         </p>
         <Flex $style={{ hAlign: "end", fDirection: "row" }}>
-          <CancelButton onClick={() => setIsOpened(false)}>Cancel</CancelButton>
-          <DeleteButton onClick={() => handleDelete()}>Delete</DeleteButton>
+          <CancelButton onClick={() => setIsOpen(false)}>Cancel</CancelButton>
+          <DeleteButton onClick={() => handleDelete()}>Confirm</DeleteButton>
         </Flex>
       </ModalContent>
     </ModalContainer>

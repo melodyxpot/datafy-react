@@ -31,6 +31,13 @@ export const ModalContent = styled.div`
   transition: 500ms;
 `;
 
+export const ModalHeader = styled.div`
+  font-size: 1.3rem;
+  border-bottom: 1px solid #fff;
+  width: 100%;
+  padding: 10px;
+`;
+
 export const DeleteButton = styled.button`
   width: 90px;
   height: 40px;
