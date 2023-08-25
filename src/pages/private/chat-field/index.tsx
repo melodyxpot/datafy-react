@@ -13,6 +13,7 @@ import api from "utils/api";
 import useStore from "useStore";
 import { useSelector } from "react-redux";
 import { useNavigate, useParams } from "react-router-dom";
+import LoadingIcon from "assets/images/loading-blue.gif";
 
 const ChatField = () => {
   const { store, setStore } = usePrivateLayoutContext();
@@ -256,6 +257,18 @@ const ChatField = () => {
           <div ref={chatEndRef} />
         </Flex>
         <ChatInputContainer>
+          {/* {!isChatting && (
+            <img
+              src={LoadingIcon}
+              width={"100px"}
+              height={"80px"}
+              style={{
+                marginLeft: "0",
+                zIndex: "-10",
+                top: "10px"
+              }}
+            />
+          )} */}
           <InputItem onSend={handleSend} isChatting={isChatting} />
         </ChatInputContainer>
       </ChatContainer>

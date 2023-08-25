@@ -4,6 +4,7 @@ import routers from "./routes";
 import setAuthToken from "utils/setAuthToken";
 import useStore from "useStore";
 import { loadUser } from "api/user";
+import { Notifications } from "react-push-notification";
 
 function App() {
   const { update } = useStore();
@@ -32,6 +33,7 @@ function App() {
 
   return (
     <React.Fragment>
+      <Notifications position="top-right" />
       <RouterProvider router={routers()} />
     </React.Fragment>
   );

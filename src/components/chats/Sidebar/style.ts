@@ -126,6 +126,8 @@ export const BottomNavContainer = styled.ul`
   gap: 0.5rem;
   transition: 0.3s;
   position: relative;
+  border-top: 1px solid #fff;
+  padding: 1rem 0;
 `;
 
 export const BottomNavItem = styled.li`

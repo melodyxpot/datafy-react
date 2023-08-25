@@ -29,8 +29,8 @@ export interface StyledGridPropsType extends InlineGridPropsType {
 
 const setStyle = ({
 	flex,
-	fDirection,
-	fWrap,
+	fDirection: fDirection,
+	fWrap: fWrap,
 	alignItems,
 	justifyContent,
 	justifyItems,

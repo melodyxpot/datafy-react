@@ -32,7 +32,7 @@ const setStyle = (
 		h,
 		minH,
 		maxH,
-		txtTransform
+		txtTransform: txtTransform
 	}: Partial<InlineHeadingPropsType>,
 	level?: HeadingLevelType,
 ) => {

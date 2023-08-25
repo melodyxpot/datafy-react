@@ -82,7 +82,7 @@ const ChatInput: React.FC<PropsType> = ({ onSend, isChatting }) => {
             vAlign: "center"
           }}
         >
-          <DropDown
+          {/* <DropDown
             label={labels[labelIndex].label}
             direct="top"
             container={(e: () => void) => (
@@ -102,18 +102,14 @@ const ChatInput: React.FC<PropsType> = ({ onSend, isChatting }) => {
                 ))}
               </Flex>
             )}
-          />
+          /> */}
           <ChatEraser onClick={handleInputDelete}>
             <Icon icon="Erase" />
           </ChatEraser>
         </Flex>
-        {isChatting ? (
-          <img src={"assets/images/chat-loading.gif"} />
-        ) : (
-          <SendButton onClick={() => handleSend()}>
-            <Icon icon="Sent" />
-          </SendButton>
-        )}
+        <SendButton onClick={() => handleSend()} disabled={isChatting}>
+          <Icon icon="Sent" />
+        </SendButton>
       </Flex>
     </ChatInputWrapper>
   );

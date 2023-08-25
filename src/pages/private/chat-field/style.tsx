@@ -1,3 +1,4 @@
+import { Flex } from "components/basic";
 import { styled } from "styled-components";
 import { GV } from "utils/style.util";
 
@@ -19,4 +20,8 @@ export const ChatContainer = styled.div`
   }
 `;
 
-export const ChatInputContainer = styled.div``;
+export const ChatInputContainer = styled(Flex)`
+  justify-content: center;
+  flex-direction: column;
+  position: relative;
+`;
