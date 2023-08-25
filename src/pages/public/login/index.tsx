@@ -9,7 +9,8 @@ import {
   BGVector1,
   BGVector2,
   BGVector3,
-  MobileLogo
+  MobileLogo,
+  LoginInput
 } from "./style";
 import LoginImageAsset from "assets/images/login-logo.png";
 import LoginBGVector1Asset from "assets/images/login-bg-vec1.png";
@@ -22,22 +23,22 @@ import { AxiosError, AxiosResponse } from "axios";
 import api from "utils/api";
 import setAuthToken from "utils/setAuthToken";
 
-interface ILoginState {
+interface LoginState {
   email: string;
   password: string;
 }
 
-interface ILoginError {
+interface LoginError {
   email: string;
   password: string;
 }
 
 export default function index() {
-  const [state, setState] = useState<ILoginState>({
+  const [state, setState] = useState<LoginState>({
     email: "",
     password: ""
   });
-  const [formError, setFormError] = useState<ILoginError>({
+  const [formError, setFormError] = useState<LoginError>({
     email: "",
     password: ""
   });
@@ -51,12 +52,11 @@ export default function index() {
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     let isValid = true;
-    if (state.email === "") {
-      setFormError({ ...formError, email: "Email is requried" });
-      isValid = false;
-    }
-    if (state.password === "") {
-      setFormError({ ...formError, password: "Password is required" });
+    setFormError({
+      email: state.email ? "" : "Email is requried",
+      password: state.password ? "" : "Password is required"
+    });
+    if (!state.email || !state.password) {
       isValid = false;
     }
     if (!isValid) return;
@@ -69,7 +69,7 @@ export default function index() {
       })
       .catch((err: AxiosError) => {
         if (err.response) {
-          setFormError(err.response.data as ILoginError);
+          setFormError(err.response.data as LoginError);
         }
         console.error(err);
       });
@@ -97,7 +97,7 @@ export default function index() {
           <LoginInfo>Welcome back! Please enter your details.</LoginInfo>
         </LoginHead>
         <LoginForm onSubmit={handleSubmit}>
-          <Input
+          <LoginInput
             label={"Email"}
             type={"email"}
             name={"email"}
@@ -106,7 +106,7 @@ export default function index() {
             placeholder={"Enter your email"}
             onChange={handleInputChange}
           />
-          <Input
+          <LoginInput
             label={"Password"}
             type={"password"}
             name={"password"}
@@ -115,7 +115,7 @@ export default function index() {
             placeholder={"Enter your Password"}
             onChange={handleInputChange}
           />
-          <Flex
+          {/* <Flex
             $style={{
               hAlign: "space-between"
             }}
@@ -136,7 +136,7 @@ export default function index() {
             >
               Forgot Password
             </Link>
-          </Flex>
+          </Flex> */}
           <LoginButton type="submit">Sign In</LoginButton>
         </LoginForm>
       </LoginFormContainer>

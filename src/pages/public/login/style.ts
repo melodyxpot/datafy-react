@@ -1,4 +1,5 @@
 import { styled } from "styled-components";
+import { Checkbox, Input } from "components/custom";
 
 export const BGVector1 = styled.img`
   position: fixed;
@@ -85,6 +86,10 @@ export const LoginForm = styled.form`
   gap: 20px;
 `;
 
+export const LoginInput = styled(Input)`
+  transition: 0.3s;
+`;
+
 export const LoginButton = styled.button`
   text-align: center;
   width: 100%;
@@ -96,4 +101,11 @@ export const LoginButton = styled.button`
   justify-content: center;
   align-items: center;
   color: #fff;
+  transition: 0.5s;
+
+  &:hover {
+    box-shadow:
+      rgba(50, 50, 93, 0.25) 0px 30px 60px -12px,
+      rgba(0, 0, 0, 0.3) 0px 18px 36px -18px;
+  }
 `;

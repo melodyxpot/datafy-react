@@ -5,6 +5,7 @@ export const ChatInputWrapper = styled.div`
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
+  width: 100%;
   max-width: 812px;
   margin: 0 auto;
   padding: 0.5rem 1rem;
@@ -20,7 +21,7 @@ export const InputItem = styled.input`
   padding: 0.5rem 0;
 `;
 
-export const SendButton = styled.div`
+export const SendButton = styled.button`
   padding: 8px;
   display: inline-flex;
   align-items: center;
