@@ -78,8 +78,8 @@ export default function index() {
   return (
     <Flex
       $style={{
-        hAlign: "center",
-        vAlign: "center",
+        $hAlign: "center",
+        $vAlign: "center",
         gap: "80px",
         w: "100%",
         h: "100vh"

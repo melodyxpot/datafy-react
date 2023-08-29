@@ -1,7 +1,7 @@
 import { styled } from "styled-components";
 import { GV } from "utils/style.util";
 
-export const SidebarContainer = styled.div<{ isOpen?: boolean }>`
+export const SidebarContainer = styled.div<{ isopen?: boolean }>`
   top: 0;
   left: 0;
   display: flex;
@@ -20,7 +20,7 @@ export const SidebarContainer = styled.div<{ isOpen?: boolean }>`
 
   @media (max-width: 601px) {
     position: fixed;
-    ${({ isOpen }) =>
+    ${({ isopen: isOpen }) =>
       isOpen
         ? `
             width: ${GV("sidebar-width")};
@@ -29,10 +29,10 @@ export const SidebarContainer = styled.div<{ isOpen?: boolean }>`
   }
 `;
 
-export const HamburgerContainer = styled.div<{ isOpen?: boolean }>`
+export const HamburgerContainer = styled.div<{ isopen?: boolean }>`
   align-self: flex-end;
 
-  ${({ isOpen }) =>
+  ${({ isopen: isOpen }) =>
     !isOpen
       ? `
         align-self: center;
@@ -40,7 +40,7 @@ export const HamburgerContainer = styled.div<{ isOpen?: boolean }>`
       : ""}
 `;
 
-export const Hamburger = styled.span<{ isOpen?: boolean }>`
+export const Hamburger = styled.span<{ isopen?: boolean }>`
   position: relative;
   display: inline-block;
   width: 30px;
@@ -76,7 +76,7 @@ export const Hamburger = styled.span<{ isOpen?: boolean }>`
     bottom: 10%;
   }
 
-  ${({ isOpen }) =>
+  ${({ isopen: isOpen }) =>
     isOpen
       ? `
         span,

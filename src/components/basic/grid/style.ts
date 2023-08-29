@@ -2,19 +2,19 @@ import styled from 'styled-components';
 
 interface InlineGridPropsType {
 	flex?:						string
-	fDirection?:				'column' | 'row' | 'row-reverse' | 'column-reverse'
-	fWrap?:						'wrap' | 'no-wrap';
-	alignItems?:				string
-	alignContent?:				string
-	justifyContent?:			string
-	justifyItems?:				string
-	gap?:						string
-	p?:							string
-	mb?:						string
-	w?:							string
+	$fDirection?:			'column' | 'row' | 'row-reverse' | 'column-reverse'
+	$fWrap?:					'wrap' | 'no-wrap';
+	alignItems?:			string
+	alignContent?:		string
+	justifyContent?:	string
+	justifyItems?:		string
+	gap?:						  string
+	p?:							  string
+	mb?:						  string
+	w?:							  string
 	minW?:						string
 	maxW?:						string
-	h?:							string
+	h?:							  string
 	minH?:						string
 	maxH?:						string
 	columns?:					string
@@ -29,8 +29,8 @@ export interface StyledGridPropsType extends InlineGridPropsType {
 
 const setStyle = ({
 	flex,
-	fDirection: fDirection,
-	fWrap: fWrap,
+	$fDirection: fDirection,
+	$fWrap: fWrap,
 	alignItems,
 	justifyContent,
 	justifyItems,

@@ -8,7 +8,7 @@ interface PropsType {
 
 const SidebarMask: React.FC<PropsType> = ({ slideOpened, setSlideOpened }) => {
   return (
-    <MaskContainer onClick={() => setSlideOpened(false)} isOpen={slideOpened}>
+    <MaskContainer onClick={() => setSlideOpened(false)} isopen={slideOpened}>
       index
     </MaskContainer>
   );
