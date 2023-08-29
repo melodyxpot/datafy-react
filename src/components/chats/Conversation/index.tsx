@@ -31,7 +31,7 @@ const Conversation: React.FC<PropsType> = ({ conversation, onDelete }) => {
       <DeleteModal
         title={`Delete - ${conversation.title}`}
         content={`Please confirm that you want to delete ${conversation.title}`}
-        isOpen={deleteState}
+        isopen={deleteState}
         setIsOpen={setDeleteState}
         handleDelete={handleDelete}
       />

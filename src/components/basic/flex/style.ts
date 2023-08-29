@@ -3,22 +3,22 @@ import styled from 'styled-components';
 interface InlineFlexPropsType {
 	display?:				string
 	flex?:					string
-	fDirection?:			'column' | 'row' | 'row-reverse' | 'column-reverse'
-	fWrap?:					'wrap' | 'no-wrap';
-	vAlign?:				string
-	hAlign?:				string
-	gap?:					string
+	$fDirection?:	  'column' | 'row' | 'row-reverse' | 'column-reverse'
+	$fWrap?:			  'wrap' | 'no-wrap';
+	$vAlign?:				string
+	$hAlign?:				string
+	gap?:					  string
 	count?:					number
-	p?:						string
-	mb?:					string
-	w?:						string
+	p?:						  string
+	mb?:					  string
+	w?:						  string
 	minW?:					string
 	maxW?:					string
-	h?:						string
+	h?:						  string
 	minH?:					string
 	maxH?:					string
 	between?:				string
-	overflow?:				"auto" | "scroll" | "scroll-x" | "scroll-y" | "hidden" | string
+	overflow?:		  "auto" | "scroll" | "scroll-x" | "scroll-y" | "hidden" | string
 }
 
 type QueryType = { [key: string]: InlineFlexPropsType };
@@ -35,10 +35,10 @@ export interface StyledFlexChildPropsType {
 const setStyle = ({
 	display,
 	flex,
-	fDirection,
-	fWrap,
-	vAlign,
-	hAlign,
+	$fDirection: fDirection,
+	$fWrap: fWrap,
+	$vAlign: vAlign,
+	$hAlign: hAlign,
 	gap,
 	count,
 	p,

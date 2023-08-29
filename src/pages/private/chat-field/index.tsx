@@ -226,7 +226,7 @@ const ChatField = () => {
   return (
     <Flex
       $style={{
-        fDirection: "row",
+        $fDirection: "row",
         h: "100vh"
       }}
     >
@@ -247,7 +247,7 @@ const ChatField = () => {
         <Flex
           $style={{
             flex: "1",
-            fDirection: "column",
+            $fDirection: "column",
             overflow: "scroll"
           }}
         >

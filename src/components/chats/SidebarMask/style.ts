@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const MaskContainer = styled.div<{ isOpen: boolean }>`
+export const MaskContainer = styled.div<{ isopen: boolean }>`
   width: 100%;
   height: 100vh;
   position: fixed;
@@ -9,7 +9,7 @@ export const MaskContainer = styled.div<{ isOpen: boolean }>`
   top: 0;
   left: 0;
   transition: 0.5s;
-  ${({ isOpen }) =>
+  ${({ isopen: isOpen }) =>
     isOpen
       ? `
             display: block;

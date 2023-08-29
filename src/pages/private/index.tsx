@@ -13,7 +13,7 @@ const PrivateLayout = () => {
         childrenNodes={(store) => {
           return (
             <PrivateLayoutContainer>
-              <Main isOpen={store.store.slideOpened}>
+              <Main isopen={store.store.slideOpened}>
                 <Outlet />
               </Main>
             </PrivateLayoutContainer>

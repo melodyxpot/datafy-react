@@ -73,13 +73,13 @@ const ChatInput: React.FC<PropsType> = ({ onSend, isChatting }) => {
       />
       <Flex
         $style={{
-          hAlign: "space-between"
+          $hAlign: "space-between"
         }}
       >
         <Flex
           $style={{
             gap: "0.5rem",
-            vAlign: "center"
+            $vAlign: "center"
           }}
         >
           {/* <DropDown

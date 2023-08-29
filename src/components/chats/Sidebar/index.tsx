@@ -89,10 +89,10 @@ const Sidebar: React.FC<PropsType> = ({ slideOpened, setSlideOpened }) => {
   };
 
   return (
-    <SidebarContainer isOpen={slideOpened}>
+    <SidebarContainer isopen={slideOpened}>
       <DeleteModal
         title={"Delete All Conversations"}
-        isOpen={deleteState}
+        isopen={deleteState}
         content={"Please confirm that you want to delete all conversations."}
         setIsOpen={setDeleteState}
         handleDelete={handleDelete}
@@ -100,20 +100,20 @@ const Sidebar: React.FC<PropsType> = ({ slideOpened, setSlideOpened }) => {
       <Flex
         $style={{
           flex: "1",
-          fDirection: "column",
+          $fDirection: "column",
           overflow: "hidden"
         }}
       >
         <Flex
           $style={{
-            fDirection: "column",
-            vAlign: "center",
+            $fDirection: "column",
+            $vAlign: "center",
             p: "1rem",
             gap: "10px"
           }}
         >
-          <HamburgerContainer isOpen={slideOpened}>
-            <Hamburger isOpen={slideOpened} onClick={setSlideOpened}>
+          <HamburgerContainer isopen={slideOpened}>
+            <Hamburger isopen={slideOpened} onClick={setSlideOpened}>
               <span />
             </Hamburger>
           </HamburgerContainer>
@@ -123,8 +123,8 @@ const Sidebar: React.FC<PropsType> = ({ slideOpened, setSlideOpened }) => {
           <Flex
             $style={{
               display: "flex",
-              fDirection: "column",
-              vAlign: "center"
+              $fDirection: "column",
+              $vAlign: "center"
             }}
           >
             <Heading level={4}>DataFy</Heading>
@@ -138,7 +138,7 @@ const Sidebar: React.FC<PropsType> = ({ slideOpened, setSlideOpened }) => {
           $style={{
             flex: "1",
             display: "flex",
-            fDirection: "column",
+            $fDirection: "column",
             p: "0 1rem",
             overflow: "auto",
             gap: "1rem"
@@ -147,7 +147,7 @@ const Sidebar: React.FC<PropsType> = ({ slideOpened, setSlideOpened }) => {
           <Heading
             level={6}
             $style={{
-              txtTransform: "uppercase"
+              $txtTransform: "uppercase"
             }}
           >
             Conversations
@@ -155,7 +155,7 @@ const Sidebar: React.FC<PropsType> = ({ slideOpened, setSlideOpened }) => {
           <Flex
             as={"ul"}
             $style={{
-              fDirection: "column"
+              $fDirection: "column"
             }}
           >
             {conversation.map((i, k: number) => (
@@ -170,7 +170,7 @@ const Sidebar: React.FC<PropsType> = ({ slideOpened, setSlideOpened }) => {
       </Flex>
       <Flex
         $style={{
-          fDirection: "column",
+          $fDirection: "column",
           p: "0.5rem 1rem"
         }}
       >
@@ -190,7 +190,7 @@ const Sidebar: React.FC<PropsType> = ({ slideOpened, setSlideOpened }) => {
             <Flex
               $style={{
                 flex: "1",
-                fDirection: "column"
+                $fDirection: "column"
               }}
             >
               <Span>{user && user.user.name}</Span>

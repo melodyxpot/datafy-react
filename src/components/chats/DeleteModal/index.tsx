@@ -10,7 +10,7 @@ import { Flex } from "components/basic";
 
 interface PropsType {
   title: string;
-  isOpen: boolean;
+  isopen: boolean;
   setIsOpen: (param: boolean) => void;
   handleDelete: () => void;
   content: string;
@@ -18,7 +18,7 @@ interface PropsType {
 
 const DeleteModal: React.FC<PropsType> = ({
   title,
-  isOpen,
+  isopen: isOpen,
   setIsOpen,
   handleDelete,
   content
@@ -44,7 +44,7 @@ const DeleteModal: React.FC<PropsType> = ({
         <p style={{ textAlign: "center", margin: "15px", fontSize: "1rem" }}>
           {content}
         </p>
-        <Flex $style={{ hAlign: "end", fDirection: "row" }}>
+        <Flex $style={{ $hAlign: "end", $fDirection: "row" }}>
           <CancelButton onClick={() => setIsOpen(false)}>Cancel</CancelButton>
           <DeleteButton onClick={() => handleDelete()}>Confirm</DeleteButton>
         </Flex>
