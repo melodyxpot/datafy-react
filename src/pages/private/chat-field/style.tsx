@@ -1,6 +1,5 @@
 import { Flex } from "components/basic";
 import { styled } from "styled-components";
-import { GV } from "utils/style.util";
 
 export const HeaderContainer = styled.div`
   display: flex;
