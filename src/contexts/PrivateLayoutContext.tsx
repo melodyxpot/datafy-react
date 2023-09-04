@@ -45,7 +45,7 @@ export const PrivateLayoutContextConsumer: React.FC<{
 }> = ({ childrenNodes }) => {
   return (
     <PrivateLayoutContext.Consumer>
-      {(store) => {
+      {store => {
         return childrenNodes(store);
       }}
     </PrivateLayoutContext.Consumer>

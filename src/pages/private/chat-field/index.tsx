@@ -13,7 +13,6 @@ import api from "utils/api";
 import useStore from "useStore";
 import { useSelector } from "react-redux";
 import { useNavigate, useParams } from "react-router-dom";
-import LoadingIcon from "assets/images/loading-blue.gif";
 
 const ChatField = () => {
   const { store, setStore } = usePrivateLayoutContext();
@@ -40,8 +39,8 @@ const ChatField = () => {
         setIsChatting(false);
       } else {
         if (
-          conversation.filter((item) => item.id === params.convers_id)
-            .length !== 0
+          conversation.filter(item => item.id === params.convers_id).length !==
+          0
         ) {
           getChats(params.convers_id);
         } else {
@@ -118,7 +117,7 @@ const ChatField = () => {
       ]
     };
 
-    setMessages((msg) => [
+    setMessages(msg => [
       ...msg,
       {
         role: "user",
@@ -134,7 +133,7 @@ const ChatField = () => {
         chatXhr.open("GET", `${SERVER_API}/api/chat/chat?orderId=${res.data}`);
         chatXhr.onprogress = function () {
           if (resStart) {
-            setMessages((msg) => [
+            setMessages(msg => [
               ...msg,
               {
                 role: "assistant",
@@ -144,7 +143,7 @@ const ChatField = () => {
             resStart = false;
           }
           responseMessage = chatXhr.responseText;
-          setMessages((msg) =>
+          setMessages(msg =>
             msg.map((item: Message, i: number) => {
               if (i === msg.length - 1) {
                 return {
@@ -215,10 +214,10 @@ const ChatField = () => {
   const handleInsertChat = (chat: Message) => {
     api
       .post(`/chat?con_id=${params.convers_id}`, chat)
-      .then((res) => {
+      .then(res => {
         console.log("Insert Success");
       })
-      .catch((err) => {
+      .catch(err => {
         console.error(`Chat Insert ERR :=> ${err}`);
       });
   };
@@ -237,10 +236,10 @@ const ChatField = () => {
         <HeaderContainer>
           <Heading level={5}>
             {params.convers_id === "new-conversation" ||
-            conversation.filter((item) => item.id === params.convers_id)[0] ===
+            conversation.filter(item => item.id === params.convers_id)[0] ===
               undefined
               ? "New Conversation with Datafy"
-              : conversation.filter((item) => item.id === params.convers_id)[0]
+              : conversation.filter(item => item.id === params.convers_id)[0]
                   .title}
           </Heading>
         </HeaderContainer>

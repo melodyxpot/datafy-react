@@ -10,7 +10,7 @@ const PrivateLayout = () => {
   return (
     <PrivateLayoutContextProvider>
       <PrivateLayoutContextConsumer
-        childrenNodes={(store) => {
+        childrenNodes={store => {
           return (
             <PrivateLayoutContainer>
               <Main isopen={store.store.slideOpened}>

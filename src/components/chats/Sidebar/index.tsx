@@ -52,21 +52,17 @@ const Sidebar: React.FC<PropsType> = ({ slideOpened, setSlideOpened }) => {
   const handleConversationDelete = (id: string) => {
     api
       .delete(`/convers/${id}`)
-      .then((res) => {
+      .then(res => {
         if (res.data === "success") {
-          const prevPos = conversation.map((item) => item.id).indexOf(id);
+          const prevPos = conversation.map(item => item.id).indexOf(id);
           const prevConversations = [...conversation];
           update({
-            conversation: prevConversations.splice(
-              0,
-              conversation.map((item: IConversation) => item.id).indexOf(id)
-            )
+            conversation: conversation.filter(item => item.id !== id)
           });
-          console.log(prevPos);
           navigate("/c/new-conversation");
         }
       })
-      .catch((err) => {
+      .catch(err => {
         console.error(`CONVERSATION DELETE ERR :=> ${err}`);
       });
   };

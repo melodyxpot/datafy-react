@@ -1,0 +1,28 @@
+{
+  "endOfLine": "auto",
+  "semi": true,
+  "useTabs": false,
+  "singleQuote": false,
+  "arrowParens": "avoid",
+  "tabWidth": 2,
+  "trailingComma": "none",
+  "importOrder": [
+    "^(react/(.*)$)|^(react$)",
+    "<THIRD_PARTY_MODULES>",
+    "",
+    "@types/$",
+    "pages/(.*)$",
+    "config/(.*)$",
+    "lib/(.*)$",
+    "hooks/(.*)$",
+    "components/(.*)$",
+    "",
+    "^[./]"
+  ],
+  "importOrderSeparation": false,
+  "importOrderSortSpecifiers": true,
+  "importOrderBuiltinModulesToTop": true,
+  "importOrderParserPlugins": ["typescript", "jsx", "decorators-legacy"],
+  "importOrderMergeDuplicateImports": true,
+  "importOrderCombineTypeAndValueImports": true
+}
