@@ -1,5 +1,5 @@
 import { styled } from "styled-components";
-import { Checkbox, Input } from "components/custom";
+import { Input } from "components/custom";
 
 export const BGVector1 = styled.img`
   position: fixed;

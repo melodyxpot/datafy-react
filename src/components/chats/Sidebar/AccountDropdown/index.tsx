@@ -1,6 +1,6 @@
 import React from "react";
 import { ModalContainer, SettingSelectItem } from "./style";
-import { Flex, Span } from "components/basic";
+import { Span } from "components/basic";
 import { IconLogout } from "@tabler/icons-react";
 import setAuthToken from "utils/setAuthToken";
 import { useNavigate } from "react-router-dom";
