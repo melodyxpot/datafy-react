@@ -7,7 +7,6 @@ import SidebarMask from "components/chats/SidebarMask";
 import ChatMessage from "components/chats/ChatMessage";
 import InputItem from "components/chats/ChatInput";
 import { useEffect, useRef, useState } from "react";
-import { SERVER_API } from "config/endpoints";
 import { AxiosError, AxiosResponse } from "axios";
 import api from "utils/api";
 import useStore from "useStore";
@@ -130,7 +129,10 @@ const ChatField = () => {
       .then((res: AxiosResponse) => {
         let resStart = true;
         const chatXhr = new XMLHttpRequest();
-        chatXhr.open("GET", `${SERVER_API}/api/chat/chat?orderId=${res.data}`);
+        chatXhr.open(
+          "GET",
+          `${process.env.REACT_APP_SERVER_URL}/api/chat/chat?orderId=${res.data}`
+        );
         chatXhr.onprogress = function () {
           if (resStart) {
             setMessages(msg => [
@@ -214,7 +216,7 @@ const ChatField = () => {
   const handleInsertChat = (chat: Message) => {
     api
       .post(`/chat?con_id=${params.convers_id}`, chat)
-      .then(res => {
+      .then(() => {
         console.log("Insert Success");
       })
       .catch(err => {

@@ -16,7 +16,6 @@ import { AxiosError, AxiosResponse } from "axios";
 import api from "utils/api";
 import { useSelector } from "react-redux";
 import useStore from "useStore";
-import { SERVER_API } from "config/endpoints";
 import AccountDropdown from "./AccountDropdown";
 import DeleteModal from "../DeleteModal";
 
@@ -69,7 +68,7 @@ const Sidebar: React.FC<PropsType> = ({ slideOpened, setSlideOpened }) => {
 
   const handleClearConversations = () => {
     api
-      .delete(`${SERVER_API}/api/convers`)
+      .delete(`/convers`)
       .then((res: AxiosResponse) => {
         update({ conversation: [] });
         navigate("/c/new-conversation");

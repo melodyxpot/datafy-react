@@ -53,7 +53,7 @@ const ChatMessage: React.FC<PropsType> = ({ message }) => {
             remarkPlugins={[remarkGfm, remarkMath]}
             rehypePlugins={[rehypeMathjax]}
             components={{
-              code({ node, inline, className, children, ...props }) {
+              code({ inline, className, children, ...props }) {
                 const match = /language-(\w+)/.exec(className || "");
 
                 return !inline && match ? (
